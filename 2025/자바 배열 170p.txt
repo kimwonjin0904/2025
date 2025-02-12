@@ -1,0 +1,46 @@
+2025.2-02-12
+equals()메서드 역할
+equals는 두 문자열이 같은지 비교하는 역할
+
+public class Main {
+    public static void main(String[] args) {
+        String str1 = "hello";
+        String str2 = "hello";
+        String str3 = "Hello";
+
+        System.out.println(str1.equals(str2)); // true (내용이 동일)
+        System.out.println(str1.equals(str3)); // false (대소문자 다름)
+    }
+}
+실행결과: true
+	     flase
+
+
+
+-----------------------------------------------------------------------------------
+"김".equals("이")는 "김"과 "이"를 비교하는 코드
+
+System.out.println("김팽수".substring(0,1).equals("이"));			//김까지 추출
+System.out.println("김팽수".substring(0,1).equals("이"));			
+System.out.println("김팽수".substring(0,2).equals("이")); 			 //김팽까지 추출
+"김팽수".substring(1,3)									//팽수추출
+
+->0번 인덱스 =김
+   1번 인덱스 = 팽
+   2번 인덱스 = 수
+
+
+===================================================
+String [] students = {"강지석","김도래","김병준","김서영","김소연",""
+				+ "김원진","박정단","박종욱","송은호","신미정","이예성","이예은","정지					나","최보석","한수정"};
+
+for(int i=0; i< students.length; i++) {		//students.length보다 작을때까지 반복 
+System.out.println(students[i]);			//학생들 이름 추출
+
+->for(int i=0; i< students.length; i++에서 students.length대신 3 써도 되긴함
+
+========================================================
+for(int i=0; i< students.length; i++) {
+System.out.println((i+1) + "." + students[i]); 	// i +1 -> 출석번호를 1부터 시작하려고
+
+->
