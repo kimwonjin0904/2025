@@ -1,0 +1,56 @@
+<!--2025-02-19-->     ex-kakao-search.html(검색창만들기)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다음 웹 검색</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        const API_KEY = 'f2c4825c9090a615c6fde6e813e39899';
+        $(document).ready(function(){
+            $('#btn').click(function(){
+                let sample = "grok3";
+                let size =10;
+                let page =1;
+                let query = $('#search').val(); // 입력된 검색어 가져오기
+                if(query.trim() === ""){
+                    alert("검색어를 입력하세요.");
+                    return;
+                }
+                $.ajax({
+                    url : "https://dapi.kakao.com/v2/search/web"
+                    ,type : "GET"
+                    ,data : { "query" : query,      //sample 오류나는이유??
+                              "page"  : 1,              
+                              "size"  : 50
+                            }
+                    ,headers : { "Authorization": "KakaoAK " + API_KEY },
+                    
+                    success : function(res){
+                        console.log(res);
+                        let str = "";
+                        res.documents.forEach(function(item){
+                            str += `<div><a href="${item.url}" target="_blank">${item.title}</a><p>${item.contents}</p></div>`;
+                        });
+                        $("#content").html(str);
+                    },
+                    error : function(err){
+                        console.log(err);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="search-main">
+        <input type="text" id="search" placeholder="검색어를 입력하세요"> <!--placeholder = 입력창안에 글씨 보이게 하기기-->
+   page:<input type="text" id="page">  <!--input type="text"를 통해 입력창창-->        
+        <input type="range" min="1" max="50" id="size">
+        <button type="button" id="btn">검색</button>
+    </div>
+    <div id="content">
+    </div>
+</body>
+</html>
