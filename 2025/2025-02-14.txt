@@ -1,0 +1,45 @@
+package practice;
+
+import java.util.Scanner;
+
+public class Mytest2 {
+
+	public static void main(String[] args) {
+		
+		String strvar1 = "홍길동";
+		String strvar2 = "홍길동";
+		String strvar3 = new String("홍길동");
+		String strvar4 = new String("홍길동");
+		if(strvar1 == strvar2) {
+			System.out.println("str1과 str2참조가 같음");
+		}else {
+			System.out.println("str1과 str2참조가 다름");
+		}
+		if(strvar1.equals(strvar2)) {
+			System.out.println("문자열같음");
+		}else
+		{
+			System.out.println("문자열다름");
+		}
+		
+		
+		
+		if(strvar3 == strvar4) {
+			System.out.println("참조 같음");
+		}else {
+			System.out.println("참조 다름");
+		}
+
+		if(strvar3.equals(strvar4)) {
+			System.out.println("문자열 같음");
+		}
+		 
+		
+		
+		
+		
+	}
+
+}
+굳이  var3 var4를 아래쪽에 안 쓰고 위에다가 써두 상관없음.
+

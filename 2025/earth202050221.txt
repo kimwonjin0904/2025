@@ -1,0 +1,65 @@
+<!--2025-02-21-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation</title>
+
+    <style>
+        /* 전체 컨테이너 스타일 */
+        #container {
+            position: relative;
+            display: inline-block; /* 이미지 크기에 맞게 컨테이너 조정 */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 지구 이미지 스타일 */
+        img {
+            margin: 0;
+            padding: 0;
+            display: block; /* float 제거 및 중앙 정렬을 위한 block 설정 */
+        }
+
+        /* 검은 원(circle) 스타일 */
+        #circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background-color: black;
+            opacity: 0.6;
+            transition-duration: 0.5s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 텍스트 스타일 */
+        p {
+            font-size: 50px;
+            color: white;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* 마우스를 올리면 원(circle)이 사라지는 효과 */
+        #container:hover #circle {
+            opacity: 0;
+            transform: translateY(-250px);
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <img src="../week1/img/earth.png" width="500px" alt="지구 이미지">
+        <div id="circle">
+            <p>지구 입니다.</p>
+        </div>
+    </div>
+</body>
+</html>
